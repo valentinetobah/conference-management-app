@@ -20,10 +20,9 @@ public class ConferenceManagementApp {
     private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hh:mma");
 
     public static void main(String[] args) {
-        String filepath = "/Users/valentine/workspace/conference-managment-app/src/main/resources/";
-        String filename = "talks.txt";
+
         try {
-            List<String> lines = readFileLines(filepath+filename);
+            List<String> lines = readFileLines();
             Map<String, Integer> map = convertListToMap(lines);
             scheduleConferenceTalks(map);
 
@@ -31,8 +30,9 @@ public class ConferenceManagementApp {
             throw new RuntimeException(e);
         }
     }
-    public static List<String> readFileLines(String filename) throws IOException {
-        return Files.readAllLines(Paths.get(filename));
+    public static List<String> readFileLines() throws IOException {
+        String inputFile = "/Users/valentine/workspace/conference-managment-app/src/main/resources/talks.txt";
+        return Files.readAllLines(Paths.get(inputFile));
     }
     public static Map<String, Integer> convertListToMap(List<String> lines){
         String talk ;
