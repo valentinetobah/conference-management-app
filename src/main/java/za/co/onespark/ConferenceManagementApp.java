@@ -30,7 +30,6 @@ public class ConferenceManagementApp {
         }
     }
     public static List<String> readFileLines(String inputFile) throws IOException {
-        inputFile = "/Users/valentine/workspace/conference-managment-app/src/main/resources/talks.txt";
         return Files.readAllLines(Paths.get(inputFile));
     }
     public static Map<String, Integer> convertListToMap(List<String> lines){
